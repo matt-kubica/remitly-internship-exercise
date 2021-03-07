@@ -41,13 +41,17 @@ const App = () => {
     } else if(firstValue !== '') {
       v1 = parseFloat(firstValue)
       if(isNaN(v1)) { customAlert('Provided value is not a nuber :(')}
-      v2 = v1 * rate 
-      setSecondValue(v2.toFixed(2).toString())
+      else {
+        v2 = v1 * rate 
+        setSecondValue(v2.toFixed(2).toString())
+      }
     } else if (secondValue !== '') {
       v2 = parseFloat(secondValue)
       if(isNaN(v2)) { customAlert('Provided value is not a nuber :(')} 
-      v1 = v2 / rate
-      setFirstValue(v1.toFixed(2).toString())
+      else {
+        v1 = v2 / rate
+        setFirstValue(v1.toFixed(2).toString())
+      }
     } else {
       customAlert('At least one filed must contain value :(')
     }
