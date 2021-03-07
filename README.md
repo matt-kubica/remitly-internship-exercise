@@ -22,5 +22,20 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Launching using Docker
+
+Easiest and recommended way to fire up **Simple Currency Converter** is launching it with Docker. Run commands in the project directory:
+
+### `docker build -t <image_name> .`
+
+Builds an app with the `nginx` production server, creates image that can be launch easily.
+
+### `docker run -d -it -p 80:80/tcp --name <container_name> <image_name>:latest`
+
+Launches an app using created image. In this case, app will be available on port `80`. Logs are not displayed since it is detached mode, to see logs:
+
+### `docker logs -f <container_name>`
+
+
 
 
