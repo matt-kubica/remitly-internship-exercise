@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Form from './componenets/Form'
 import Button from './componenets/Button'
 import ExchangeRate from './componenets/ExchangeRate';
+import Footer from './componenets/Footer';
 
 const App = () => {
   const [rate, setRate] = useState(0.0)
@@ -68,8 +69,9 @@ const App = () => {
       <Form firstValue={firstValue} secondValue={secondValue}
             setFirstValue={setFirstValue} setSecondValue={setSecondValue} />
       <ExchangeRate rate={rate} />
-      <Button onClick={() => convert()} text='Convert!'/>
+      <Button onClick={() => convert()} text='Convert'/>
       <Button onClick={() => erase()} text='Erase Values'/>
+      <Footer/>
     </div>
   );
 }
