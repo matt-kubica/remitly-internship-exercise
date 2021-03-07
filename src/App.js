@@ -17,11 +17,15 @@ const App = () => {
     asyncHelper()
   }, [])
 
-  // TODO: Exceptions!!!
   const fetchRate = async () => {
-    const res = await fetch('http://api.nbp.pl/api/exchangerates/rates/a/gbp/')
-    const data = await res.json()
-    return data.rates[0].mid
+    try {
+      const res = await fetch('http://api.nbp.pl/api/exchangerates/rates/a/gbp/')//.catch((e) => alert(e))
+      const data = await res.json()
+      return data.rates[0].mid
+    } catch(err) {
+      alert('Cannot use NBP API, setting up rate to 1GBP = 5.0PLN')
+      return 5.0
+    }
   }
 
   const customAlert = (msg) => {
@@ -38,12 +42,12 @@ const App = () => {
       v1 = parseFloat(firstValue)
       if(isNaN(v1)) { customAlert('Provided value is not a nuber :(')}
       v2 = v1 * rate 
-      setSecondValue(v2.toString())
+      setSecondValue(v2.toFixed(2).toString())
     } else if (secondValue !== '') {
       v2 = parseFloat(secondValue)
       if(isNaN(v2)) { customAlert('Provided value is not a nuber :(')} 
       v1 = v2 / rate
-      setFirstValue(v1.toString())
+      setFirstValue(v1.toFixed(2).toString())
     } else {
       customAlert('At least one filed must contain value :(')
     }
