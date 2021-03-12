@@ -2,7 +2,12 @@
 
 ## Available Scripts
 
+*`node`, `npm` and `yarn` required to perform following steps, using `Docker` is highly recommened ([see bellow](#Launching-using-Docker)).* \
 In the project directory, you can run:
+
+`$ yarn install`
+
+Installs dependencies defined by `package.json`, this is required to run futher scripts.
 
 `$ yarn start`
 
